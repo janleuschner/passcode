@@ -92,7 +92,7 @@ body {
 	font: 12px "Lucida Grande", Lucida, Verdana, sans-serif;
 	color: #000;
 	padding-top: 100px;
-	background: #271D2E;
+	background: white;
 }
 
 input {
@@ -115,6 +115,7 @@ input:focus {
 	border: none;
 	outline: none;
 	background: #fff;
+	
 }
 
 #top, #bottom {
@@ -123,14 +124,15 @@ input:focus {
 	margin: auto;
 	padding-top: 11px;
 	padding-bottom: 11px;
+
 }
 
 #bottom {
-	background-color: #2C3857;
+	background-color: #5b698e;
 }
 
 #top {
-	background-color: #155E73;
+	background-color: #5b8f9b;
 }
 
 .left {
@@ -138,7 +140,7 @@ input:focus {
 	position: relative;
 	width: 34px;
 	height: 34px;
-	background-color: #DEDEDE;
+	background-color: #e5e5e5;
 	float: left;
 	padding: 0;
 	margin: 0;

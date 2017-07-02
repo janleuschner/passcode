@@ -3,7 +3,6 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Passcode Generator</title>
 		
-		<meta name="apple-itunes-app" content="app-id=554389206">
 		<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1; maximum-scale=1; user-scalable=0">
 		<script src="./Passcode Generator_files/jquery.min.js">
 		</script>
@@ -21,13 +20,13 @@
 				$("#bottom").show();
 				if (form.domain.value === "") {
 					$("#bottom > .left div").removeClass("sprite5").addClass("sprite4");
-					document.getElementById("generated").value = "Missing a required field.";
+					document.getElementById("generated").value = "Erforderliches Feld ausfüllen";
 					form.domain.focus();
 					return false;
 				}
 				if (form.password.value === "") {
 					$("#bottom > .left div").removeClass("sprite5").addClass("sprite4");
-					document.getElementById("generated").value = "Missing required password.";
+					document.getElementById("generated").value = "Erforderliches Feld ausfüllen";
 					form.password.focus();
 					return false;
 				}
@@ -42,8 +41,8 @@
 	<body>
 		<div id="top">
 			<form name="generate_passcode" action="javascript: hash();" method="post" onsubmit="return validate_generate_passcode(this);">
-				<div class="left"><div class="sprite2"></div></div><input name="domain" type="text" placeholder="domain"><br>
-				<div class="left"><div class="sprite3"></div></div><input name="password" type="password" placeholder="password" style="width:132px;"><input type="submit" id="go" value="="><div id="arrow"></div>
+				<div class="left"><div class="sprite2"></div></div><input name="domain" type="text" placeholder="Domain"><br>
+				<div class="left"><div class="sprite3"></div></div><input name="password" type="password" placeholder="Passwort" style="width:132px;"><input type="submit" id="go" value="="><div id="arrow"></div>
 			</form>
 		</div>
 		<div id="bottom" style="display:none;">
