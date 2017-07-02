@@ -8,6 +8,36 @@
 
 <link rel="stylesheet" href="/passcode/assets/css/style.css?v=2f5f7817b5c6a70dc734b9fb276971e836113a44">
 <meta name="viewport" content="width=device-width">
+<script src="./Passcode Generator_files/jquery.min.js">
+</script>
+<script type="text/javascript" src="./Passcode Generator_files/crypto-sha256.js" defer=""></script>
+<script type="text/javascript" defer="">
+  window.onload = start;
+  function start() {
+    $('#domain').focus();
+  }
+  function hash() {
+    var hash = Crypto.SHA256(document.generate_passcode.domain.value + document.generate_passcode.password.value);
+    document.getElementById("generated").value = hash.substr(0,16);
+  }
+  function validate_generate_passcode(form) {
+    $("#bottom").show();
+    if (form.domain.value === "") {
+      $("#bottom > .left div").removeClass("sprite5").addClass("sprite4");
+      document.getElementById("generated").value = "Missing a required field.";
+      form.domain.focus();
+      return false;
+    }
+    if (form.password.value === "") {
+      $("#bottom > .left div").removeClass("sprite5").addClass("sprite4");
+      document.getElementById("generated").value = "Missing required password.";
+      form.password.focus();
+      return false;
+    }
+    $("#bottom > .left div").removeClass("sprite4").addClass("sprite5");
+    $("#generated").focus();
+  }
+</script>
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -29,6 +59,16 @@
 <p>You can use the <a href="https://github.com/janleuschner/passcode/edit/master/README.md">editor on GitHub</a> to maintain and preview the content for your website in Markdown files.</p>
 
 <p>Whenever you commit to this repository, GitHub Pages will run <a href="https://jekyllrb.com/">Jekyll</a> to rebuild the pages in your site, from the content in your Markdown files.</p>
+
+<div id="top">
+  <form name="generate_passcode" action="javascript: hash();" method="post" onsubmit="return validate_generate_passcode(this);">
+    <div class="left"><div class="sprite2"></div></div><input name="domain" type="text" placeholder="domain"><br>
+    <div class="left"><div class="sprite3"></div></div><input name="password" type="password" placeholder="password" style="width:132px;"><input type="submit" id="go" value="="><div id="arrow"></div>
+  </form>
+</div>
+<div id="bottom" style="display:none;">
+<div class="left"><div class="sprite5"></div></div><input name="generated" id="generated" onclick="this.select()">
+</div>
 
 <h3 id="markdown">Markdown</h3>
 
